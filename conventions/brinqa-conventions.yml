@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.brinqa.com/docs/brinqa-api
+docs: https://docs.brinqa.com/docs/brinqa-api
+api_style:
+  protocol: GraphQL
+  single_endpoint: https://<your-brinqa-platform-url>/graphql/caasm
+  query_language: >-
+    Brinqa Query Language (BQL) is used to traverse the entity-relationship
+    graph; GraphQL is the transport used to submit queries and receive exactly
+    the requested fields in a single request.
+  explorer: >-
+    An in-browser GraphQL Explorer / IDE is available under
+    Administration > System > GraphQL Explorer for authoring and testing queries.
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <token>'
+  token_endpoint: https://<your-brinqa-platform-url>/api/auth/login
+  token_lifetime_seconds: 86400
+  mfa_supported: true
+  detail: authentication/brinqa-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented.
+pagination:
+  style: query-shaped
+  guidance: >-
+    The API is designed for queries returning fewer than ~5,000 datasets;
+    typical usage returns 100-200 entries per query. Callers scope result size
+    through the GraphQL/BQL query itself rather than through cursor/offset
+    pagination parameters.
+filtering:
+  date_expressions: >-
+    Supports relative date expressions and date filtering operators in queries.
+error_envelope:
+  transport_status: >-
+    HTTP status codes are used for auth/transport failures (401/403/404/405);
+    see errors/brinqa-error-codes.yml.
+  query_errors: >-
+    GraphQL query-level errors are returned in the standard GraphQL "errors"
+    array. An HTML (non-JSON) response typically means the /api path component
+    is missing.
+  detail: errors/brinqa-error-codes.yml
+versioning:
+  scheme: platform-release
+  notes: >-
+    The API is delivered as part of the per-tenant Brinqa Platform; there is no
+    separately versioned public API path documented.
+rate_limits:
+  documented: false

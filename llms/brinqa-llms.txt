@@ -1,0 +1,28 @@
+# Brinqa
+
+> Brinqa is an AI-powered vulnerability and exposure management platform that unifies cyber risk data from across an enterprise's tools into a single trusted data model. It ingests and correlates exposure findings, deduplicates them, and uses risk scoring and automation to prioritize and drive remediation. The platform exposes a GraphQL API (the Brinqa Platform API) for querying assets, findings, hosts, tickets, and vulnerabilities using the Brinqa Query Language (BQL).
+
+## API
+
+- [Brinqa Platform API (GraphQL)](https://docs.brinqa.com/docs/brinqa-api): GraphQL API at `https://<your-brinqa-platform-url>/graphql/caasm`. Bearer-token auth (token from `/api/auth/login`, 24h validity, MFA supported).
+- [BQL overview](https://docs.brinqa.com/docs/bql-overview): Brinqa Query Language for traversing the entity-relationship graph.
+
+## Docs
+
+- [Documentation home](https://docs.brinqa.com/): Connectors, data modeling, risk management, query & analysis, workflow automation, reporting.
+- [Getting started](https://docs.brinqa.com/docs/category/getting-started): Onboarding guide for the Brinqa Platform.
+- [API reference](https://docs.brinqa.com/docs/brinqa-api): Authentication, example queries, and API error codes.
+
+## Artifacts
+
+- [Authentication profile](authentication/brinqa-authentication.yml): Bearer-token model.
+- [API error codes](errors/brinqa-error-codes.yml): 401/403/404/405 handling.
+- [API conventions](conventions/brinqa-conventions.yml): GraphQL/BQL semantics, query sizing, error envelope.
+- [Domain security](security/brinqa-domain-security.yml): TLS/HSTS/DNSSEC/SPF/DMARC probe.
+
+## Company
+
+- [Brinqa](https://www.brinqa.com/): Cyber risk / exposure management platform, Austin, TX.
+- [Blog](https://www.brinqa.com/blog): Product and cyber risk content.
+- [GitHub](https://github.com/brinqa): Public utility repositories (no first-party API SDK).
+- [Support](https://brinqa.atlassian.net/servicedesk/customer/portals): Customer service desk.

@@ -1,8 +1,29 @@
 aid: brinqa
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/brinqa.png
 name: Brinqa
-description: 'Brinqa is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. Sector: cybersecurity. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Brinqa is an AI-powered vulnerability and exposure management platform that
+  unifies cyber risk data from across an enterprise's security tools into a
+  single trusted data model. It ingests and correlates exposure findings from
+  scanners and connectors, deduplicates them, and applies risk scoring, custom
+  risk factors, and workflow automation to prioritize and drive remediation.
+  The Brinqa Platform exposes a GraphQL API and the Brinqa Query Language (BQL)
+  for traversing an entity-relationship graph of assets, findings, hosts,
+  tickets, and vulnerabilities, plus reporting and dashboards on those datasets.
+  This API Evangelist profile was seeded from an Insight Partners portfolio lead
+  and enriched from Brinqa's public developer documentation.
 url: https://raw.githubusercontent.com/api-evangelist/brinqa/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +33,40 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Cybersecurity
-apis: []
+- Vulnerability Management
+- Exposure Management
+- Cyber Risk
+- Risk Management
+- Security
+- GraphQL
+apis:
+- name: Brinqa Platform API
+  description: >-
+    GraphQL API for the Brinqa Platform. Query assets, findings, hosts, tickets,
+    and vulnerabilities using GraphQL and the Brinqa Query Language (BQL).
+    Bearer-token authentication; the endpoint is per-tenant, relative to each
+    customer's platform URL.
+  humanURL: https://docs.brinqa.com/docs/brinqa-api
+  baseURL: https://<your-brinqa-platform-url>/graphql/caasm
+  tags:
+  - GraphQL
+  - Vulnerability Management
+  - Cyber Risk
+  properties:
+  - type: APIReference
+    url: https://docs.brinqa.com/docs/brinqa-api
+  - type: GettingStarted
+    url: https://docs.brinqa.com/docs/category/getting-started
+  - type: Authentication
+    url: authentication/brinqa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/brinqa-error-codes.yml
+  - type: Conventions
+    url: conventions/brinqa-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +75,36 @@ maintainers:
 common:
 - type: Website
   url: https://www.brinqa.com/
+- type: DeveloperPortal
+  url: https://docs.brinqa.com/
+- type: Documentation
+  url: https://docs.brinqa.com/
+- type: APIReference
+  url: https://docs.brinqa.com/docs/brinqa-api
+- type: GettingStarted
+  url: https://docs.brinqa.com/docs/category/getting-started
+- type: Blog
+  url: https://www.brinqa.com/blog
+- type: Support
+  url: https://brinqa.atlassian.net/servicedesk/customer/portals
+- type: GitHubOrganization
+  url: https://github.com/brinqa
+- type: TermsOfService
+  url: https://www.brinqa.com/terms
+- type: PrivacyPolicy
+  url: https://www.brinqa.com/privacy
+- type: Authentication
+  url: authentication/brinqa-authentication.yml
+- type: ErrorCatalog
+  url: errors/brinqa-error-codes.yml
+- type: Conventions
+  url: conventions/brinqa-conventions.yml
+- type: DomainSecurity
+  url: security/brinqa-domain-security.yml
+- type: LLMsTxt
+  url: llms/brinqa-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

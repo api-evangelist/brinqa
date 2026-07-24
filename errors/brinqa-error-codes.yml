@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.brinqa.com/docs/brinqa-api
+docs: https://docs.brinqa.com/docs/brinqa-api
+format: http-status
+envelope: >-
+  GraphQL responses return HTTP status codes for transport/auth failures and a
+  standard GraphQL "errors" array for query-level problems. An HTML response
+  body (rather than JSON) typically indicates the request URI is missing its
+  required /api component.
+errors:
+  - status: 401
+    title: Unauthorized
+    meaning: The access token has expired.
+    remediation: >-
+      Request a new bearer token from /api/auth/login; tokens expire after 24
+      hours (86400 seconds).
+  - status: 403
+    title: Forbidden
+    meaning: The user does not have permission to access that endpoint.
+    remediation: >-
+      Confirm the authenticated user's role/permissions include access to the
+      requested data model or operation.
+  - status: 404
+    title: Not Found
+    meaning: May indicate that the data model was incorrectly specified.
+    remediation: Verify the data model name and the request path.
+  - status: 405
+    title: Method / Parameter Not Acceptable
+    meaning: May indicate that a parameter was incorrect.
+    remediation: Verify request parameters and the GraphQL query shape.
+notes: >-
+  Query-level failures (invalid BQL/GraphQL) are returned in the GraphQL
+  "errors" array with a 200 transport status per the GraphQL convention. The
+  status table above is captured verbatim from the provider's API documentation.
